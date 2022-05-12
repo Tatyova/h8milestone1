@@ -1,5 +1,6 @@
 from itertools import count
 from matplotlib.ft2font import VERTICAL
+import io 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -26,8 +27,7 @@ def app():
     
 st.title('Myanmar Supermarket Behaviour Summary')
 st.write('Dataframe')
-url = 'https://github.com/Tatyova/h8milestone1/blob/main/supermarket_sales%20-%20Sheet1.csv'
-df = pd.read_csv(url, index_col=0)
+df = pd.read_csv('../supermarket_sales - Sheet1.csv')
 ss = df.copy()
 del ss["Invoice ID"]
 del ss["Tax 5%"]
