@@ -26,7 +26,7 @@ def app():
     
 st.title('Myanmar Supermarket Behaviour Summary')
 st.write('Dataframe')
-df = pd.read_csv(r'C:\Users\LENOVO\OneDrive\Desktop\h8dsft_Milestone1_Timothy\supermarket_sales - Sheet1.csv')
+df = pd.read_csv('\supermarket_sales - Sheet1.csv')
 ss = df.copy()
 del ss["Invoice ID"]
 del ss["Tax 5%"]
