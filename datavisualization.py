@@ -1,3 +1,4 @@
+from itertools import count
 from tkinter import PAGES
 from matplotlib.ft2font import VERTICAL
 import pandas as pd
@@ -11,16 +12,16 @@ def app():
     st.title('Myanmar Supermarket Behaviour Summary')
     st.write('Dataframe')
     st.subheader('Jumlah Produk yang dibeli per Gender')
-    st.radio('Pilih Kategori', options=ss['Product line'].unique())
+    st.radio('Pilih Kategori', options= ss['Product line'].unique(), key=count)
     st.pyplot(fig)
     st.subheader('Tingkat Kepuasan Supermarket per Kota')
-    st.selectbox('Pilih Kota', options= ss['City'].unique())
+    st.selectbox('Pilih Kota', options= ss['City'].unique(), key=count)
     st.pyplot(fig2)
     st.subheader('Metode Pembayaran yang paling disenangi customer')
-    st.radio('Metode Pembayaran:', options=sshr['Payment'].unique())
+    st.radio('Metode Pembayaran:', options=sshr['Payment'].unique(), key=count)
     st.pyplot(fig3)
     st.subheader('Rating per Cabang Supermarket')
-    st.selectbox('Pilih Cabang Supermarket', options= df['Branch'].unique())
+    st.selectbox('Pilih Cabang Supermarket', options= df['Branch'].unique(), key=count)
     st.pyplot(fig4)
     
     
@@ -48,15 +49,12 @@ ss['Z-Score'] = stats.zscore(ss['cogs'])
 ss['Date'] = pd.to_datetime(ss['Date'], errors='coerce')
 daily_cogs = ss[['Date','cogs']].groupby('Date').sum()
 
-st.subheader('Jumlah Produk yang dibeli per Gender')
 
-selected = st.radio('Pilih Kategori', options=ss['Product line'].unique())
+selected = st.radio('Pilih Kategori', options= ss['Product line'].unique())
 
 fig,ax = plt.subplots()
 sns.histplot(df[df['Product line']==selected]['Gender'])
-st.pyplot(fig)
 
-st.subheader('Tingkat Kepuasan Supermarket per Kota')
 selected2 = st.selectbox('Pilih Kota', options= ss['City'].unique())
 
 ss['Rating']= ss.Rating.astype(object)
@@ -65,17 +63,12 @@ fig2,ax = plt.subplots()
 sns.scatterplot(ss[ss['City']==selected2]['Date'],
                 ss[ss['City']==selected2]['Rating'])
 plt.xticks(rotation=45)
-st.pyplot(fig2)
 
-st.subheader('Metode Pembayaran yang paling disenangi customer')
 
 selected3 = st.radio('Metode Pembayaran:', options=sshr['Payment'].unique())
 
 fig3,ax = plt.subplots()
 sns.histplot(sshr[sshr['Payment']==selected3]['Customer type'])
-st.pyplot(fig3)
-
-st.subheader('Rating per Cabang Supermarket')
 
 selected4 = st.selectbox('Pilih Cabang Supermarket', options= df['Branch'].unique())
 
@@ -84,4 +77,3 @@ fig4,ax = plt.subplots()
 sns.scatterplot(df[df['Branch']==selected4]['Date'],
                 df[df['Branch']==selected4]['Rating'])
 plt.xticks(fontsize=4, rotation=90)
-st.pyplot(fig4)
