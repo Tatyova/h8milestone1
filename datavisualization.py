@@ -6,22 +6,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns 
 import streamlit as st 
 from scipy import stats
-
-def app():
-    st.title('Myanmar Supermarket Behaviour Summary')
-    st.write('Dataframe')
-    st.subheader('Jumlah Produk yang dibeli per Gender')
-    st.radio('Pilih Kategori', options= ss['Product line'].unique(), key=count)
-    st.pyplot(fig)
-    st.subheader('Tingkat Kepuasan Supermarket per Kota')
-    st.selectbox('Pilih Kota', options= ss['City'].unique(), key=count)
-    st.pyplot(fig2)
-    st.subheader('Metode Pembayaran yang paling disenangi customer')
-    st.radio('Metode Pembayaran:', options=sshr['Payment'].unique(), key=count)
-    st.pyplot(fig3)
-    st.subheader('Rating per Cabang Supermarket')
-    st.selectbox('Pilih Cabang Supermarket', options= df['Branch'].unique(), key=count)
-    st.pyplot(fig4)
     
     
 st.title('Myanmar Supermarket Behaviour Summary')
@@ -76,3 +60,19 @@ fig4,ax = plt.subplots()
 sns.scatterplot(df[df['Branch']==selected4]['Date'],
                 df[df['Branch']==selected4]['Rating'])
 plt.xticks(fontsize=4, rotation=90)
+
+def app():
+    st.title('Myanmar Supermarket Behaviour Summary')
+    st.write('Dataframe')
+    st.subheader('Jumlah Produk yang dibeli per Gender')
+    st.radio('Pilih Kategori', options= ss['Product line'].unique(), key=count)
+    st.pyplot(fig)
+    st.subheader('Tingkat Kepuasan Supermarket per Kota')
+    st.selectbox('Pilih Kota', options= ss['City'].unique(), key=count)
+    st.pyplot(fig2)
+    st.subheader('Metode Pembayaran yang paling disenangi customer')
+    st.radio('Metode Pembayaran:', options=sshr['Payment'].unique(), key=count)
+    st.pyplot(fig3)
+    st.subheader('Rating per Cabang Supermarket')
+    st.selectbox('Pilih Cabang Supermarket', options= df['Branch'].unique(), key=count)
+    st.pyplot(fig4)
