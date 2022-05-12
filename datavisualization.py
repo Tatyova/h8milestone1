@@ -26,7 +26,8 @@ def app():
     
 st.title('Myanmar Supermarket Behaviour Summary')
 st.write('Dataframe')
-df = pd.read_csv(r"C:\Users\LENOVO\Downloads\supermarket_sales - Sheet1.csv")
+url = 'https://github.com/Tatyova/h8milestone1/blob/main/supermarket_sales%20-%20Sheet1.csv'
+df = pd.read_csv(url, index_col=0)
 ss = df.copy()
 del ss["Invoice ID"]
 del ss["Tax 5%"]
