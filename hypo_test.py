@@ -1,4 +1,3 @@
-from tkinter import PAGES
 from matplotlib.ft2font import VERTICAL
 import pandas as pd
 import numpy as np
