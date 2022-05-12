@@ -15,7 +15,7 @@ def app():
     
 st.title('Hypothesis Testing')
 
-img = Image.open(r'C:\Users\LENOVO\OneDrive\Desktop\h8dsft_Milestone1_Timothy\hypothesis.png')
+img = Image.open('hypothesis.png')
 
 st.write('Saya asumsikan Average COGS Supermarket tahun lalu sebesar 3000 rata rata per hari, apakah hal tersebut menandakan COGS meningkat secara signifikan? saya akan melakukan *single sample one sided test* dengan tingkat signifikansi 0.05 H0: μ <= 3000 H1: μ > 3000')
 
